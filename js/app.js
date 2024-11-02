@@ -1,18 +1,15 @@
-'use strict'
+'use strict';
 
 // Nav Section
-
-// Select the toggle menu icon and the <ul> element
 const toggleMenu = document.querySelector('.toggle-menu');
 const navLinks = document.querySelector('header nav ul');
 
-// Add an event listener to the toggle menu icon
-toggleMenu.addEventListener('click', () => {
-    // Toggle the 'show-menu' class on the <ul> element
+// Toggle menu for small screens
+toggleMenu?.addEventListener('click', () => {
     navLinks.classList.toggle('show-menu');
 });
 
-// Change the languages in the white box and nav
+// Language toggle functionality
 document.addEventListener("DOMContentLoaded", () => {
     const langToggle = document.querySelector(".language-toggle");
     const langToggle2 = document.querySelector(".language-change");
@@ -21,26 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const icon = document.querySelector(".change-language");
     const icon2 = document.querySelector(".change-language-icon");
 
-    // Toggle language options visibility when clicking the icon
-    icon.addEventListener("click", () => {
+    // Toggle visibility for language options
+    icon?.addEventListener("click", () => {
         langToggle.classList.toggle("show-options");
-        icon.style.display= 'none'
+        icon.style.display = 'none';
     });
 
-    icon2.addEventListener("click", () => {
+    icon2?.addEventListener("click", () => {
         langToggle2.classList.toggle("show-options");
-        icon2.style.display= 'none'
+        icon2.style.display = 'none';
     });
 
-    // Update the selected language and hide options when an option is clicked
+    // Update selected language and hide options
     languageOptions.forEach(option => {
         option.addEventListener("click", () => {
-            // Remove active class from all options and add it to the selected one
             languageOptions.forEach(lang => lang.classList.remove("active"));
             option.classList.add("active");
-            icon.style.display= 'inline'
-
-            // Hide options after selection
+            icon.style.display = 'inline';
             langToggle.classList.remove("show-options");
         });
     });
@@ -49,24 +43,44 @@ document.addEventListener("DOMContentLoaded", () => {
         option.addEventListener("click", () => {
             languageOptions2.forEach(lang => lang.classList.remove("active"));
             option.classList.add("active");
-            icon2.style.display= 'inline'
-
+            icon2.style.display = 'inline';
             langToggle2.classList.remove("show-options");
         });
     });
 
-
-    // Hide language options if clicked outside
+    // Hide options if clicked outside
     document.addEventListener("click", (event) => {
-        if (!langToggle.contains(event.target)) {
+        if (!langToggle.contains(event.target) && event.target !== icon) {
             langToggle.classList.remove("show-options");
-            icon.style.display= 'inline'
+            icon.style.display = 'inline';
+        }
+        if (!langToggle2.contains(event.target) && event.target !== icon2) {
+            langToggle2.classList.remove("show-options");
+            icon2.style.display = 'inline';
         }
     });
-    document.addEventListener("click", (event) => {
-        if (!langToggle2.contains(event.target)) {
-            langToggle2.classList.remove("show-options");
-            icon2.style.display= 'inline'
+});
+
+// Toggle search category functionality
+document.addEventListener("DOMContentLoaded", () => {
+    const searchCategory = document.querySelector(".search-category");
+    const selectedCategory = document.querySelector(".selected-category");
+    const categoryList = document.querySelector(".category-list");
+
+    searchCategory?.addEventListener("click", (event) => {
+        searchCategory.classList.toggle("show");
+        event.stopPropagation();
+    });
+
+    categoryList?.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+            selectedCategory.textContent = event.target.textContent;
+            searchCategory.classList.remove("show");
         }
+    });
+
+    // Close category list if clicked outside
+    document.addEventListener("click", () => {
+        searchCategory.classList.remove("show");
     });
 });
