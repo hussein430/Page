@@ -121,6 +121,7 @@ header .white-box .language-change {
   gap: 8px;
   margin-left: 20px;
   transition: 0.3s;
+  z-index: 1;
 }
 
 .lang {
