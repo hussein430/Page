@@ -1,0 +1,318 @@
+/* General */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Start Nav */
+header {
+  position: relative;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  /* Delete */
+  background-color: black;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  border-right: 5px solid;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: white;
+}
+
+header .white-box {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 38px;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  right: 94px;
+  border: 1px solid white;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+}
+
+
+@media (max-width: 768px) {
+    header .white-box{
+        left: 50%;
+        transform: translateX(-50%);
+        width: 115px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        z-index: 10;
+    }
+}
+
+header .white-box ul li {
+  display: inline-flex;
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header .white-box ul{
+        display: none;
+    }
+}
+
+header .white-box .language-change {
+  position: relative;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+.lang {
+  display: none;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header .white-box .language-change .active {
+  display: inline;
+}
+
+header .white-box .language-change.show-options {
+    flex-direction: column;
+    gap: 5px;
+    background-color: white;
+    top: 20px;
+    border-radius: 10px;
+}
+
+header .white-box .language-change.show-options .lang {
+  display: inline;
+}
+
+header .white-box .flag {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 97px;
+}
+
+@media (max-width: 768px) {
+  header .container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .toggle-menu {
+    position: absolute;
+    left: 10px;
+  }
+
+  .logo {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .tools {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.logo img {
+  height: 150px;
+}
+
+header nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .toggle-menu {
+  color: white;
+  font-size: 22px;
+}
+
+/* Show the toggle only on small screens */
+@media (min-width: 769px) {
+  header .toggle-menu {
+    display: none;
+  }
+}
+
+header nav ul {
+  display: flex;
+}
+
+/* Hide links small screens */
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+  }
+}
+
+header nav ul.show-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 88%;
+  left: 2%;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header .toggle-menu:hover + ul li a {
+  padding: 15px;
+}
+
+header nav ul li a {
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+  padding: 40px 10px;
+  position: relative;
+  z-index: 2;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+  color: var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+}
+
+.language-toggle {
+  position: relative;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .language-toggle {
+    display: none;
+  }
+}
+
+.lang-option {
+  display: none;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.language-toggle .active {
+  display: inline;
+}
+
+.language-toggle.show-options {
+  flex-direction: column; /* Stack options vertically */
+  gap: 5px;
+}
+
+.language-toggle.show-options .lang-option {
+  display: block;
+}
+
+header nav .tools {
+  color: #fff;
+}
+
+header nav .tools i {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header nav .tools .user-icon {
+    display: none;
+  }
+}
+
+header nav .tools .shop-icon {
+  margin-left: 25px;
+  position: relative;
+  background-color: #eee;
+  color: black;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+header nav .tools .shop-icon::after {
+  content: "2";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: yellow;
+  color: black;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -5px;
+  top: -5px;
+}
+
+/* End Nav */

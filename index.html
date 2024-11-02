@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Start Nav -->
+    <header>
+      <div class="white-box">
+        <ul>
+          <li>faq</li>
+          <li>contact</li>
+          <li>other</li>
+          <li>services</li>
+        </ul>
+        <div class="language-change">
+          <span class="lang lang1" data-lang="EN">
+            <img src="imgs/united-states.png" alt="English Flag" class="flag" /> EN
+        </span>
+        <span class="lang lang2 active" data-lang="AR">
+            <img src="imgs/united-arab-emirates.png" alt="Arabic Flag" class="flag" /> AR
+        </span>
+        <i class="fas fa-sort-down change-language-icon"></i>
+        </div>
+      </div>
+      <div class="container">
+        <i class="fas fa-bars toggle-menu"></i>
+        <a href="#" class="logo">
+          <img src="imgs/logo.png" alt="logo" />
+        </a>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Protfolio</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Pages</a></li>
+          </ul>
+
+          <!-- Language toggle -->
+          <div class="language-toggle">
+            <span class="lang-option active" data-lang="EN">EN</span>
+            <span class="lang-option" data-lang="AR">AR</span>
+            <i class="fas fa-sort-down change-language"></i>
+          </div>
+
+          <div class="tools">
+            <i class="fa fa-user user-icon"></i>
+            <i class="fa fa-cart-shopping shop-icon"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- End Nav -->
+
+    <!-- Font Awesome Cdn-->
+    <script
+      src="https://kit.fontawesome.com/b81843000d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Js Files -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
